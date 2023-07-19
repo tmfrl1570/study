@@ -17,19 +17,5 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Build with Gradle
-          uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-          with:
-            arguments: clean build -x test
 
-      - name: action-slack
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          author_name: "깃 알림입니다."
-          fields: repo,commit,message,author, action,eventName,ref,workflow,job,took # action,eventName,ref,workflow,job,took 추가할 수 있음
-          mention: here
-          if_mention: failure,cancelled
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-        if: always() # Pick up events even if the job fails or is canceled.
+
