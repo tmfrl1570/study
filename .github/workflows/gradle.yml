@@ -76,7 +76,7 @@ jobs:
       id: slack-success
       uses: slackapi/slack-github-action@v1.24.0
       with:
-        payload:
+        payload: |
           {
             "channel": "C05H9AGA6RM",
             "attachments": [
@@ -111,7 +111,7 @@ jobs:
       id: slack-failure
       uses: slackapi/slack-github-action@v1.24.0
       with:
-        payload:
+        payload: |
           {
             "channel": "C05H9AGA6RM",
             "attachments": [
